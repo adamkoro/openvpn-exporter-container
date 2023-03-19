@@ -11,5 +11,5 @@ COPY entrypoint.sh .
 ENV STATUS_FILE="/var/log/openvpn.status"
 RUN echo "user:x:10000:10000:user:/home/user:/bin/bash" >> /etc/passwd && chown -R user /home/user/ && chmod +x openvpn_exporter
 USER user
-EXPOSE 9189
+EXPOSE 9176
 ENTRYPOINT ["./entrypoint.sh"]
