@@ -9,10 +9,10 @@ WORKDIR /home/user
 COPY --from=0 /build/openvpn_exporter-linux-amd64 /home/user/openvpn_exporter
 ENV STATUS_FILE="/var/log/openvpn.status" \
     LISTEN_ADDRESS="9176" \
-    METRICS_PATH="/metrics"
+    METRICS_PATH="/metrics" \
     DISABLE_CLIENT_METRICS="false" \
     enable_golang_metrics="false" \
-    LOG_LEVEL
+    LOG_LEVEL="info"
 RUN echo "user:x:10000:10000:user:/home/user:/bin/bash" >> /etc/passwd && chown -R user /home/user/ && chmod +x openvpn_exporter
 USER user
 EXPOSE ${LISTEN_ADDRESS}
