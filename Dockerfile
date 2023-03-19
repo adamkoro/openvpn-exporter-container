@@ -14,7 +14,7 @@ ENV OPENVPN_EXPORTER_STATUS_FILE="/var/log/openvpn/openvpn.status" \
     OPENVPN_EXPORTER_DISABLE_CLIENT_METRICS="false" \
     OPENVPN_EXPORTER_ENABLE_GOLANG_METRICS="false" \
     OPENVPN_EXPORTER_LOG_LEVEL="info"
-RUN echo "user:x:10000:10000:user:/home/user:/bin/bash" >> /etc/passwd && chown -R user /home/user/ && chmod +x openvpn_exporter && && chown -R user /var/log/openvpn
+RUN echo "user:x:10000:10000:user:/home/user:/bin/bash" >> /etc/passwd && chown -R user /home/user/ && chmod +x openvpn_exporter && chown -R user /var/log/openvpn
 USER user
 EXPOSE 9176
 ENTRYPOINT ["/home/user/openvpn_exporter"]
