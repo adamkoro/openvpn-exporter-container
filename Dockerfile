@@ -7,7 +7,7 @@ RUN sha256sum -c openvpn_exporter-linux-amd64.sha256
 FROM harbor.adamkoro.com/bci/bci-micro:15.4
 WORKDIR /home/user
 COPY --from=0 /build/openvpn_exporter-linux-amd64 /home/user/openvpn_exporter
-ENV OPENVPN_EXPORTER_WEB_PATH="/var/log/openvpn.status" \
+ENV OPENVPN_EXPORTER_STATUS_FILE="/var/log/openvpn.status" \
     OPENVPN_EXPORTER_WEB_ADDRESS="9176" \
     OPENVPN_EXPORTER_WEB_PATH="/metrics" \
     OPENVPN_EXPORTER_DISABLE_CLIENT_METRICS="false" \
